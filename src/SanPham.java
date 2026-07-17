@@ -1,3 +1,5 @@
+package src;
+
 public abstract class SanPham {
     protected String idSanPham;
     protected String tenSanPham;
@@ -51,8 +53,6 @@ public abstract class SanPham {
 
     public abstract double thanhToan();
 
-    // public void set
-
     @Override
     public String toString() {
         return "- Ma san pham: " + getIdSanPham()
@@ -60,5 +60,4 @@ public abstract class SanPham {
                 + "\n- Don gia: " + getDonGia() + " VND"
                 + "\n- So luong: " + getSoLuong();
     }
-
 }
