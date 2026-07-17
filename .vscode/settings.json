@@ -1,7 +1,0 @@
-{
-    "files.exclude": {
-        "**/*.class": true,
-        ".vscode": true,
-        ".gitignore": true
-    }
-}
