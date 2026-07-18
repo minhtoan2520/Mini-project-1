@@ -32,7 +32,7 @@ public class App {
             System.out.println("1. Xem danh sach san pham");
             System.out.println("2. Them san pham");
             System.out.println("3. Xoa san pham");
-            System.out.println("4. Cap nhat so luong");
+            System.out.println("4. Sua san pham");
             System.out.println("5. Tim kiem san pham theo ten");
             System.out.println("6. Sap xep san pham theo gia");
             System.out.println("7. Hien thi tong tien cua tat ca san pham");
@@ -46,9 +46,16 @@ public class App {
                     qlsp.hienThi();
                     break;
                 case 2:
-                    System.out.println(
-                            "Ban muon them san pham nao?\nNhap 1 de them sach:\nNhap 2 de them van phong pham:\nNhap 0 de quay lai menu: ");
+                    System.out.println("Ban muon them san pham nao?");
+                    System.out.println("Chon 1 de them sach");
+                    System.out.println("Chon 2 de them van phong pham");
+                    System.out.println("Chon 0 de quay lai menu");
                     luaChon = scanner.nextInt();
+
+                    while (luaChon < 0 || luaChon > 2) {
+                        System.out.println("Khong hop le, vui long nhap lai: ");
+                        luaChon = scanner.nextInt();
+                    }
                     if (luaChon == 1) {
                         qlsp.themSach();
                     } else if (luaChon == 2) {
@@ -56,16 +63,13 @@ public class App {
                     } else if (luaChon == 0) {
                         System.out.println("Da tro ve menu!");
                         luaChon = 1;
-                    } else {
-                        System.out.println("Khong hop le, vui long nhap lai: ");
-                        luaChon = scanner.nextInt();
                     }
                     break;
                 case 3:
                     qlsp.xoaSanPham();
                     break;
                 case 4:
-                    System.out.println("Cap nhat so luong");
+                    qlsp.suaSanPham();
                     break;
                 case 5:
                     System.out.println("Tim kiem san pham theo ten");
