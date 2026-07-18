@@ -6,18 +6,6 @@ import src.VanPhongPham;
 
 public class App {
     public static void main(String[] args) {
-        // Sach sach = new Sach("1", "Sach 1", 100, 10, "Tac Gia 1", "NXB 1", "The Loai
-        // 1");
-        // System.out.println(sach);
-        // System.out.println("Tong tien: " + sach.thanhToan());
-
-        // VanPhongPham vpp = new VanPhongPham("1", "Van Phong Pham 1", 100, 10, "Chat
-        // Lieu 1", "Mau Sac 1",
-        // "Thuong Hieu 1");
-        // System.out.println(vpp);
-        // System.out.println("Tong tien: " + vpp.thanhToan());
-
-        Scanner scanner = new Scanner(System.in);
 
         QuanLySanPham qlsp = new QuanLySanPham();
 
@@ -34,6 +22,71 @@ public class App {
         sp[9] = new VanPhongPham("205", "Bang dinh", 20000, 567, "Nhua + keo dinh", "Trong suot", "Nhieu thuong hieu");
         sp[10] = new VanPhongPham("206", "Compa", 15000, 730, "Nhua", "Nhieu mau", "Kim Long");
 
+        qlsp.themTuMang(sp);
+
+        Scanner scanner = new Scanner(System.in);
+        int luaChon = -1;
+
+        while (luaChon != 0) {
+            System.out.println("=============MENU=============");
+            System.out.println("1. Xem danh sach san pham");
+            System.out.println("2. Them san pham");
+            System.out.println("3. Xoa san pham");
+            System.out.println("4. Cap nhat so luong");
+            System.out.println("5. Tim kiem san pham theo ten");
+            System.out.println("6. Sap xep san pham theo gia");
+            System.out.println("7. Hien thi tong tien cua tat ca san pham");
+            System.out.println("0. Thoat");
+            System.out.println("Nhap lua chon: ");
+            luaChon = scanner.nextInt();
+
+            switch (luaChon) {
+                case 1:
+                    System.out.println("====== DANH SACH SAN PHAM ======");
+                    qlsp.hienThi();
+                    break;
+                case 2:
+                    System.out.println(
+                            "Ban muon them san pham nao?\nNhap 1 de them sach:\nNhap 2 de them van phong pham:\nNhap 0 de quay lai menu: ");
+                    luaChon = scanner.nextInt();
+                    if (luaChon == 1) {
+                        qlsp.themSach();
+                    } else if (luaChon == 2) {
+                        qlsp.themVPP();
+                    } else if (luaChon == 0) {
+                        System.out.println("Da tro ve menu!");
+                        luaChon = 1;
+                    } else {
+                        System.out.println("Khong hop le, vui long nhap lai: ");
+                        luaChon = scanner.nextInt();
+                    }
+                    break;
+                case 3:
+                    qlsp.xoaSanPham();
+                    break;
+                case 4:
+                    System.out.println("Cap nhat so luong");
+                    break;
+                case 5:
+                    System.out.println("Tim kiem san pham theo ten");
+                    break;
+                case 6:
+                    System.out.println("Sap xep san pham theo gia");
+                    break;
+                case 7:
+                    System.out.println("Hien thi tong tien cua tat ca san pham");
+                    break;
+                case 0:
+                    System.out.println("Da thoat chuong trinh!");
+                    break;
+                default:
+                    while (luaChon < 0 || luaChon > 7) {
+                        System.out.println("Khong hop le, vui long nhap lai: ");
+                        luaChon = scanner.nextInt();
+                    }
+            }
+        }
+
         // for (int i = 0; i < sp.length; i++) {
         // System.out.println(sp[i]);
         // // System.out.println("Tong tien: " + sp[i].thanhToan());
@@ -45,14 +98,10 @@ public class App {
         // them.AddVPP();
 
         // Thêm toàn bộ dữ liệu từ mảng sp vào ArrayList danhSach của QuanLySanPham
-        qlsp.themTuMang(sp);
-        System.out.println("====== DANH SACH SAN PHAM ======");
-        qlsp.hienThi();
 
-        qlsp.themSach();
         // qlsp.hienThi();
-        // qlsp.themVPP();
-        // qlsp.hienThi();
+
+        // qlsp.themSach();
 
         scanner.close();
     }

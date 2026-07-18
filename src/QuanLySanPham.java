@@ -82,6 +82,21 @@ public class QuanLySanPham {
         System.out.println("Them thanh cong!");
     }
 
+    public void xoaSanPham() {
+        System.out.println("Nhap ID san pham muon xoa: ");
+        String id = scanner.nextLine();
+        for (int i = 0; i < danhSach.size(); i++) {
+            if (danhSach.get(i).idSanPham.equals(id)) {
+                danhSach.remove(i);
+                System.out.println("Xoa thanh cong san pham ID :" + id);
+                hienThi();
+                break;
+            } else {
+                System.out.println("Khong tim thay san pham co ID: " + id + ", vui long nhap lai ID: ");
+                id = scanner.nextLine();
+            }
+        }
+    }
     // public void AddSach(String idSanPham,
     // String tenSanPham,
     // double donGia,
