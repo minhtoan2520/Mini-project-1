@@ -1,7 +1,12 @@
-package src;
+package service;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import src.Sach;
+import src.SanPham;
+import src.VanPhongPham;
+import srcinterface.InterfaceQLSP;
 
 public class QuanLySanPham implements InterfaceQLSP {
     Scanner scanner = new Scanner(System.in);
@@ -10,7 +15,7 @@ public class QuanLySanPham implements InterfaceQLSP {
     public void hienThi() {
         for (int i = 0; i < danhSach.size(); i++) {
             System.out.println(danhSach.get(i));
-            System.out.println("---------------------------------");
+            System.out.println("----------------------------------");
         }
     }
 
@@ -102,9 +107,11 @@ public class QuanLySanPham implements InterfaceQLSP {
                         danhSach.remove(i);
                         check = true;
                         hienThi();
+                        System.out.println("----------------------------------");
                         System.out.println("Xoa thanh cong san pham co ID: " + id);
                         break;
                     } else if (luaChon == 0) {
+                        System.out.println("----------------------------------");
                         System.out.println("Huy xoa thanh cong!");
                         check = true;
                         break;
@@ -124,21 +131,21 @@ public class QuanLySanPham implements InterfaceQLSP {
             String id = scanner.nextLine();
 
             for (int i = 0; i < danhSach.size(); i++) {
-                if (danhSach.get(i).idSanPham.equals(id)) {
+                if (danhSach.get(i).getIdSanPham().equals(id)) {
                     System.out.println("San pham ban muon sua:\n" + danhSach.get(i));
 
-                    System.out.println("ID cu: " + danhSach.get(i).idSanPham + "\nID moi: ");
-                    danhSach.get(i).idSanPham = scanner.nextLine();
+                    System.out.println("ID cu: " + danhSach.get(i).getIdSanPham() + "\nID moi: ");
+                    danhSach.get(i).setIdSanPham(scanner.nextLine());
 
-                    System.out.println("Ten cu: " + danhSach.get(i).tenSanPham + "\nTen moi: ");
-                    danhSach.get(i).tenSanPham = scanner.nextLine();
+                    System.out.println("Ten cu: " + danhSach.get(i).getTenSanPham() + "\nTen moi: ");
+                    danhSach.get(i).setTenSanPham(scanner.nextLine());
 
-                    System.out.println("Don gia cu: " + danhSach.get(i).donGia + "\nDon gia moi: ");
-                    danhSach.get(i).donGia = scanner.nextDouble();
+                    System.out.println("Don gia cu: " + danhSach.get(i).getDonGia() + "\nDon gia moi: ");
+                    danhSach.get(i).setDonGia(scanner.nextDouble());
                     scanner.nextLine();
 
-                    System.out.println("So luong cu: " + danhSach.get(i).soLuong + "\nSo luong moi: ");
-                    danhSach.get(i).soLuong = scanner.nextInt();
+                    System.out.println("So luong cu: " + danhSach.get(i).getSoLuong() + "\nSo luong moi: ");
+                    danhSach.get(i).setSoLuong(scanner.nextInt());
                     scanner.nextLine();
 
                     if (danhSach.get(i) instanceof Sach) {
@@ -153,7 +160,7 @@ public class QuanLySanPham implements InterfaceQLSP {
                         System.out.println("The loai cu: " + sach.getTheLoai() + "\nThe loai moi: ");
                         sach.setTheLoai(scanner.nextLine());
 
-                        System.out.println("San pham sau khi sua: " + danhSach.get(i) + "\nSua thanh cong!");
+                        System.out.println("Sua thanh cong!\nSan pham sau khi sua:\n" + danhSach.get(i));
                         check = true;
                         break;
 
@@ -169,7 +176,7 @@ public class QuanLySanPham implements InterfaceQLSP {
                         System.out.println("Thuong hieu cu: " + vpp.getThuongHieu() + "\nThuong hieu moi: ");
                         vpp.setThuongHieu(scanner.nextLine());
 
-                        System.out.println("San pham sau khi sua:\n" + danhSach.get(i) + "\nSua thanh cong!");
+                        System.out.println("Sua thanh cong!\nSan pham sau khi sua:\n" + danhSach.get(i));
                         check = true;
                         break;
                     }

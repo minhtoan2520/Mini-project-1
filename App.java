@@ -1,5 +1,6 @@
 import java.util.Scanner;
-import src.QuanLySanPham;
+
+import service.QuanLySanPham;
 import src.Sach;
 import src.SanPham;
 import src.VanPhongPham;
@@ -28,7 +29,7 @@ public class App {
         int luaChon = -1;
 
         while (luaChon != 0) {
-            System.out.println("=============MENU=============");
+            System.out.println("===============MENU===============");
             System.out.println("1. Xem danh sach san pham");
             System.out.println("2. Them san pham");
             System.out.println("3. Xoa san pham");

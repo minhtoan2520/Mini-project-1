@@ -1,4 +1,6 @@
-package src;
+package srcinterface;
+
+import src.SanPham;
 
 public interface InterfaceQLSP {
     void hienThi();
