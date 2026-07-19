@@ -3,7 +3,7 @@ package src;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class QuanLySanPham {
+public class QuanLySanPham implements InterfaceQLSP {
     Scanner scanner = new Scanner(System.in);
     protected ArrayList<SanPham> danhSach = new ArrayList<>();
 
@@ -91,7 +91,7 @@ public class QuanLySanPham {
             String id = scanner.nextLine();
 
             for (int i = 0; i < danhSach.size(); i++) {
-                if (danhSach.get(i).idSanPham.equals(id)) {
+                if (danhSach.get(i).getIdSanPham().equals(id)) {
                     System.out.println(danhSach.get(i) + "\nXoa san pham?");
                     System.out.println("1. Co \n0. Khong");
                     System.out.println("Nhap lua chon: ");
@@ -153,6 +153,10 @@ public class QuanLySanPham {
                         System.out.println("The loai cu: " + sach.getTheLoai() + "\nThe loai moi: ");
                         sach.setTheLoai(scanner.nextLine());
 
+                        System.out.println("San pham sau khi sua: " + danhSach.get(i) + "\nSua thanh cong!");
+                        check = true;
+                        break;
+
                     } else if (danhSach.get(i) instanceof VanPhongPham) {
                         VanPhongPham vpp = (VanPhongPham) danhSach.get(i);
 
@@ -175,47 +179,62 @@ public class QuanLySanPham {
             if (!check) {
                 System.out.println("Khong tim thay san pham co ID: " + id);
             }
-            // System.out.println("2. Ten san pham");
-            // System.out.println("3. Don gia");
-            // System.out.println("4. So luong");
-            // if (danhSach.get(i) instanceof Sach) {
-            // System.out.println("5. Tac gia");
-            // System.out.println("6. Nha xuat ban");
-            // System.out.println("7. The loai");
-            // } else if (danhSach.get(i) instanceof VanPhongPham) {
-            // System.out.println("5. Chat lieu");
-            // System.out.println("6. Mau sac");
-            // System.out.println("7. Thuong hieu");
-            // }
-            // System.out.println("0. Quay lai");
-            // System.out.println("Nhap lua chon: ");
-            // int luaChon = scanner.nextInt();
+        }
+    }
 
-            // switch (luaChon) {
-            // case 1:
-            // System.out.println("Nhap ID moi: ");
-            // String newID = scanner.nextLine();
-            // danhSach.get(i).idSanPham = newID;
-            // break;
-            // }
+    public void timKiemSanPham() {
+        boolean check = false;
+        while (!check) {
+            System.out.println("1. Tim kiem theo ten");
+            System.out.println("2. Tim kiem theo khoang gia");
+            System.out.println("0. Tro ve Menu");
+            System.out.println("Nhap lua chon: ");
+            int luaChon = scanner.nextInt();
+            scanner.nextLine();
 
+            switch (luaChon) {
+                case 1:
+                    System.out.println("Nhap ten san pham: ");
+                    String ten = scanner.nextLine();
+
+                    for (int i = 0; i < danhSach.size(); i++) {
+                        if (danhSach.get(i).getTenSanPham().toLowerCase().contains(ten.toLowerCase())) {
+                            System.out.println(danhSach.get(i));
+                            System.out.println("------------------------------");
+                            check = true;
+                        }
+                    }
+
+                    if (!check) {
+                        System.out.println("Khong tim thay san pham!");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Nhap gia MIN: ");
+                    double giaMin = scanner.nextDouble();
+                    scanner.nextLine();
+
+                    System.out.println("Nhap gia MAX: ");
+                    double giaMax = scanner.nextDouble();
+                    scanner.nextLine();
+
+                    System.out.println("Cac san pham nam trong khoang " + giaMin + " ==> " + giaMax + " la: ");
+                    for (int i = 0; i < danhSach.size(); i++) {
+                        if (danhSach.get(i).getDonGia() >= giaMin && danhSach.get(i).getDonGia() <= giaMax) {
+                            System.out.println(danhSach.get(i));
+                            System.out.println("------------------------------");
+                            check = true;
+                        }
+                    }
+
+                    if (!check) {
+                        System.out.println("Khong ton tai san pham!");
+                    }
+                    break;
+                case 0:
+                    check = true;
+                    break;
+            }
         }
     }
 }
-// public void AddSach(String idSanPham,
-// String tenSanPham,
-// double donGia,
-// int soLuong,
-// String tacGia,
-// String nhaXB,
-// String theLoai) {
-// Sach sach = new Sach(idSanPham,
-// tenSanPham,
-// donGia,
-// soLuong,
-// tacGia,
-// nhaXB,
-// theLoai);
-// danhSach.add(sach);
-// System.out.println("Them sach thanh cong!");
-// }

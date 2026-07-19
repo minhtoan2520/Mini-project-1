@@ -33,9 +33,7 @@ public class App {
             System.out.println("2. Them san pham");
             System.out.println("3. Xoa san pham");
             System.out.println("4. Sua san pham");
-            System.out.println("5. Tim kiem san pham theo ten");
-            System.out.println("6. Sap xep san pham theo gia");
-            System.out.println("7. Hien thi tong tien cua tat ca san pham");
+            System.out.println("5. Tim kiem san pham");
             System.out.println("0. Thoat");
             System.out.println("Nhap lua chon: ");
             luaChon = scanner.nextInt();
@@ -72,41 +70,18 @@ public class App {
                     qlsp.suaSanPham();
                     break;
                 case 5:
-                    System.out.println("Tim kiem san pham theo ten");
-                    break;
-                case 6:
-                    System.out.println("Sap xep san pham theo gia");
-                    break;
-                case 7:
-                    System.out.println("Hien thi tong tien cua tat ca san pham");
+                    qlsp.timKiemSanPham();
                     break;
                 case 0:
                     System.out.println("Da thoat chuong trinh!");
                     break;
                 default:
-                    while (luaChon < 0 || luaChon > 7) {
-                        System.out.println("Khong hop le, vui long nhap lai: ");
-                        luaChon = scanner.nextInt();
+                    while (luaChon < 0 || luaChon > 5) {
+                        System.out.println("Khong hop le, vui long nhap lai!");
+                        break;
                     }
             }
         }
-
-        // for (int i = 0; i < sp.length; i++) {
-        // System.out.println(sp[i]);
-        // // System.out.println("Tong tien: " + sp[i].thanhToan());
-        // System.out.println("---------------------------------");
-        // }
-
-        // Sach sach = new Sach();
-        // sach.ThemSanPham();
-        // them.AddVPP();
-
-        // Thêm toàn bộ dữ liệu từ mảng sp vào ArrayList danhSach của QuanLySanPham
-
-        // qlsp.hienThi();
-
-        // qlsp.themSach();
-
         scanner.close();
     }
 }
