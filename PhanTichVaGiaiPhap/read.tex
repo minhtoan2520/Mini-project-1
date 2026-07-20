@@ -5,10 +5,9 @@
         - class SanPham: (abstract class) là lớp cha trừu tượng chứa các thuộc tính chung
         - class Sach: kế thừa SanPham và bổ sung các thuộc tính riêng: tacGia, nhaXB, theLoai
         - class VanPhongPham: kế thừa SanPham và bổ sung thêm thuộc tính: chatLieu, mauSac, thuongHieu
-        - class QuanLySanPham: implements InterfaceQLSP, chứa các phương thức CRUD, tìm kiếm, hiển thị và lưu mảng
-        - class App: là class main chứa vòng lặp MENU, gọi các phương thức của QuanLySanPham để thực thi
-    + Và 1 interface:
-        - InterfaceQLSP: định nghĩa các phương thức chung cho việc quản lý sản phẩm: hiển thị, CRUD, tìm kiếm
+        - class QuanLySanPham: chứa các phương thức CRUD, tìm kiếm, hiển thị và lưu mảng, class này có quan hệ Aggregation(has-a) với class SanPham
+            (trong đó class SanPham được chứa bởi class QuanLySanPham nhưng lại cho phép tồn tại độc lập với nhau)
+        - class App: là class main chứa vòng lặp MENU, mảng cho trước, gọi các phương thức của QuanLySanPham để thực thi chương trình
 
 -   Bạn chọn giải pháp nào giữa Abstract Class và Interface để định nghĩa hành vi dùng chung của sản phẩm? Tại sao?
     + Giữa abstract class và interface ở đây em chọn abstract vì:
