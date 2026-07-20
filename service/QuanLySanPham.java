@@ -6,11 +6,10 @@ import java.util.Scanner;
 import src.Sach;
 import src.SanPham;
 import src.VanPhongPham;
-import srcinterface.InterfaceQLSP;
 
-public class QuanLySanPham implements InterfaceQLSP {
+public class QuanLySanPham {
     Scanner scanner = new Scanner(System.in);
-    protected ArrayList<SanPham> danhSach = new ArrayList<>();
+    private ArrayList<SanPham> danhSach = new ArrayList<>();
 
     public void hienThi() {
         for (int i = 0; i < danhSach.size(); i++) {

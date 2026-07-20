@@ -51,8 +51,6 @@ public abstract class SanPham {
         this.soLuong = soLuong;
     }
 
-    public abstract double thanhToan();
-
     @Override
     public String toString() {
         return "- Ma san pham: " + getIdSanPham()

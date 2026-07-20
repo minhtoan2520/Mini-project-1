@@ -1,0 +1,19 @@
+
+1. Phân tích hướng đối tượng (UML Class Diagram).
+-   Bạn cần xác định và phân cấp các lớp đối tượng?
+    + Chia làm 5 lớp:
+        - class SanPham: (abstract class) là lớp cha trừu tượng chứa các thuộc tính chung
+        - class Sach: kế thừa SanPham và bổ sung các thuộc tính riêng: tacGia, nhaXB, theLoai
+        - class VanPhongPham: kế thừa SanPham và bổ sung thêm thuộc tính: chatLieu, mauSac, thuongHieu
+        - class QuanLySanPham: implements InterfaceQLSP, chứa các phương thức CRUD, tìm kiếm, hiển thị và lưu mảng
+        - class App: là class main chứa vòng lặp MENU, gọi các phương thức của QuanLySanPham để thực thi
+    + Và 1 interface:
+        - InterfaceQLSP: định nghĩa các phương thức chung cho việc quản lý sản phẩm: hiển thị, CRUD, tìm kiếm
+
+-   Bạn chọn giải pháp nào giữa Abstract Class và Interface để định nghĩa hành vi dùng chung của sản phẩm? Tại sao?
+    + Giữa abstract class và interface ở đây em chọn abstract vì:
+        - Abstract class: dùng làm lớp cha trừu tượng chứa các thuộc tính chung để các lớp con kế thừa, tái sử dụng được code và bắt các lớp con phải tự cài phương thức riêng với ghi đè Override
+
+2. Thiết kế cấu trúc lưu trữ và dữ liệu.
+-   Để lưu trữ danh sách sản phẩm trong bộ nhớ, bạn sẽ chọn cấu trúc dữ liệu nào?
+    + Em chọn ArrayList vì dùng để lưu dữ liệu trong mảng, có thể thêm hoặc xóa phần tử linh hoạt

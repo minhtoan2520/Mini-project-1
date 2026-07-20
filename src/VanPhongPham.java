@@ -46,11 +46,6 @@ public class VanPhongPham extends SanPham {
     }
 
     @Override
-    public double thanhToan() {
-        return getDonGia() * getSoLuong();
-    }
-
-    @Override
     public String toString() {
         return super.toString()
                 + "\n- Chat lieu: " + getChatLieu()
