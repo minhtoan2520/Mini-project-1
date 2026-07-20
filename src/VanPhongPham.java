@@ -53,7 +53,3 @@ public class VanPhongPham extends SanPham {
                 + "\n- Thuong hieu: " + getThuongHieu();
     }
 }
-
-class VanPhongPham extends SanPham {
-
-}
